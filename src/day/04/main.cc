@@ -69,7 +69,7 @@ int main (int argc, char** argv) {
 
 		sum += value / 2;
 
-		fmt::println("card {} ({} times) is generating {} copies", i, copies[i], make_copies);
+		//fmt::println("card {} ({} times) is generating {} copies", i, copies[i], make_copies);
 
 		for (u64 j = i + 1; j < i + 1 + make_copies; ++j) {
 			if (copies.size() <= j) {
@@ -78,7 +78,7 @@ int main (int argc, char** argv) {
 			}
 
 			copies[j] += copies[i];
-			fmt::println("card {} now has {}", j, copies[j]);
+			//fmt::println("card {} now has {}", j, copies[j]);
 		}
 	}
 
