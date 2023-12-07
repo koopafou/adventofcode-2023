@@ -15,6 +15,11 @@ using i32 = int32_t;
 using u64 = uint64_t;
 using i64 = int64_t;
 
+#if FMT_VERSION == 90101
+#error "println was added in this version of libfmt, without changing the version number, so we don't know if we have to redefine it"
+#endif
+
+#if FMT_VERSION < 90101
 namespace fmt {
 	template <typename... T>
 	FMT_INLINE void println (format_string<T...> fmt, T&& ... args) {
@@ -23,3 +28,4 @@ namespace fmt {
 		std::cout << std::flush;
 	}
 }
+#endif
