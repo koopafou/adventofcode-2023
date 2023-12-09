@@ -67,7 +67,7 @@ struct Hand {
 		parse(line, parser);
 
 		if (cards_raw.size() != 5)
-			throw ParseError{};
+			throw ParseError("bad card count");
 
 		std::map<u64, u64> value_count;
 		for (u64 i = 0; i < 5; ++i) {
