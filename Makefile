@@ -8,6 +8,8 @@ CXXFLAGS=-std=c++20 -Wall -Wextra
 
 define MKTARGET =
 
+00:$(1)
+
 SRC_$(1)=$(shell cd src/day/$(1) && ls *.cc)
 
 build/$(1)$(2)/dep/%.cc.d: src/day/$(1)/%.cc
@@ -28,8 +30,7 @@ build/bin/$(1)$(2): $$(addprefix build/$(1)$(2)/obj/, $$(addsuffix .o, $$(SRC_$(
 	g++ -Isrc $(3) $$(CXXFLAGS) `pkg-config --libs $$(PKGLIST)` $$< -o $$@
 
 $(1)$(2): build/bin/$(1)$(2) src/day/$(1)/input
-	@echo ===========
-	@echo
+	@echo =========== day $(1) ===========
 	@./build/bin/$(1)$(2) < src/day/$(1)/input | tee $@
 
 endef

@@ -77,10 +77,10 @@ int main (int argc, char** argv) {
 			}
 
 			if (num_terminal && validated) {
-				fmt::println("added {}", current);
+				//fmt::println("added {}", current);
 				sum += current;
 				for (Coord gear : nearby_gears) {
-					fmt::println("gear at {}x{}", gear.x, gear.y);
+					//fmt::println("gear at {}x{}", gear.x, gear.y);
 					gears[gear].push_back(current);
 				}
 			}
@@ -98,7 +98,7 @@ int main (int argc, char** argv) {
 	u64 ratio = 0;
 
 	for (auto&& [coord, gear_list] : gears) {
-		fmt::println("gear at {}x{} has neighbors : {}", coord.x, coord.y, gear_list);
+		//fmt::println("gear at {}x{} has neighbors : {}", coord.x, coord.y, gear_list);
 		if (gear_list.size() == 2) {
 			ratio += gear_list[0] * gear_list[1];
 		}
